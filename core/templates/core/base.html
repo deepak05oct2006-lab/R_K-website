@@ -1,0 +1,59 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}R_K Paint & Polish Works{% endblock %}</title>
+<meta name="description" content="Professional painting contractor and wood polishing services.">
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="{% url 'home' %}" class="logo">R<span><bold>_</bold>K</span> Paint & Polish</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'gallery' %}">Gallery</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact' %}" class="btn-nav">Get Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+{% if messages %}
+  <div class="container">
+    {% for m in messages %}<div class="alert">{{ m }}</div>{% endfor %}
+  </div>
+{% endif %}
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Ramadass & Kasthuri Paint & Polish Works</h3>
+      <p>Trusted painting contractor & wood polishing experts delivering quality finishes for homes and businesses.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>📞 +91 9840784554</p>
+      <p>✉️ R_K_paint@gmail.com</p>
+      <p>📍 Chennai, Tamil Nadu</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'gallery' %}">Gallery</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span id="year"></span> R_K_paint Paint & Polish Works. All rights reserved.</p>
+</footer>
+
+<a href="tel:+919876543210" class="call-fab" aria-label="Call Now">📞</a>
+<script src="{% static 'core/js/main.js' %}"></script>
+</body>
+</html>

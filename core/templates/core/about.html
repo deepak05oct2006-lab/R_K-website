@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% block title %}About Us - ShreeSai Paint & Polish{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><h1>About Us</h1></div></section>
+<section class="section">
+  <div class="container about-grid">
+    <div>
+      <h2>Who We Are</h2>
+      <p>With over 15 years of hands-on experience, ShreeSai Paint & Polish Works is a trusted name in painting contracting and wood polishing. We combine skilled craftsmanship with quality materials to deliver finishes that last.</p>
+      <p>From residential homes to commercial spaces, our team handles every project with care, punctuality, and attention to detail.</p>
+    </div>
+    <div class="why-us">
+      <h3>Why Choose Us</h3>
+      <ul>
+        <li>✔ Skilled & experienced painters</li>
+        <li>✔ Premium quality paints & polish materials</li>
+        <li>✔ On-time project completion</li>
+        <li>✔ Transparent, fair pricing</li>
+        <li>✔ Clean and tidy work process</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Client Testimonials</h2>
+    <div class="grid grid-3">
+      {% for t in testimonials %}
+      <div class="card testimonial"><p>"{{ t.message }}"</p><strong>— {{ t.name }}</strong></div>
+      {% empty %}
+      <p>No testimonials yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block title %}Gallery - ShreeSai Paint & Polish{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><h1>Our Work</h1></div></section>
+<section class="section">
+  <div class="container">
+    <div class="filter-bar">
+      <a href="{% url 'gallery' %}" class="{% if not cat %}active{% endif %}">All</a>
+      <a href="?cat=paint" class="{% if cat == 'paint' %}active{% endif %}">Painting</a>
+      <a href="?cat=polish" class="{% if cat == 'polish' %}active{% endif %}">Wood Polishing</a>
+    </div>
+    <div class="grid grid-4 gallery-grid">
+      {% for g in gallery %}
+      <div class="gallery-item"><img src="{{ g.image.url }}" alt="{{ g.title }}" loading="lazy"></div>
+      {% empty %}
+      <p>No images yet. Add some from the admin panel.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

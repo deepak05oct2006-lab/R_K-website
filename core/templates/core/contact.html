@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% block title %}Contact Us - ShreeSai Paint & Polish{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><h1>Get In Touch</h1></div></section>
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h3>Contact Details</h3>
+      <p>📞 +91 9840784554</p>
+      <p>✉️ RKpaints@gmail.com</p>
+      <p>📍 Chennai, Tamil Nadu</p>
+      <p>🕐 Mon - Sat: 9:00 AM - 7:00 PM</p>
+    </div>
+    <form method="post" class="contact-form" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          {{ field }}
+          {% if field.errors %}<small class="err">{{ field.errors.0 }}</small>{% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

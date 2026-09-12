@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block title %}Our Services - ShreeSai Paint & Polish{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><h1>Our Services</h1></div></section>
+<section class="section">
+  <div class="container grid grid-3">
+    {% for s in services %}
+    <div class="card">
+      <div class="card-icon">🎨</div>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.description }}</p>
+    </div>
+    {% empty %}
+    <div class="card"><div class="card-icon">🎨</div><h3>Interior & Exterior Painting</h3><p>Premium quality paints applied with precision.</p></div>
+    <div class="card"><div class="card-icon">🪵</div><h3>Wood Polishing</h3><p>Restore and shine furniture and woodwork.</p></div>
+    <div class="card"><div class="card-icon">🧱</div><h3>Wall Texturing</h3><p>Modern textures and designer finishes.</p></div>
+    <div class="card"><div class="card-icon">🛠️</div><h3>Repairs & Putty Work</h3><p>Crack filling and surface prep.</p></div>
+    <div class="card"><div class="card-icon">🚪</div><h3>Door & Furniture Polish</h3><p>French polish, melamine & PU coating.</p></div>
+    <div class="card"><div class="card-icon">🏢</div><h3>Commercial Painting</h3><p>Fast painting for offices and shops.</p></div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

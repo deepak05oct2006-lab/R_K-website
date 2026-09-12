@@ -1,0 +1,91 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>Expert Painting & Wood Polishing Contractors</h1>
+      <p>Transforming homes and offices with flawless paint finishes and premium wood polishing — quality work, fair prices, on-time delivery.</p>
+      <div class="hero-btns">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Get Free Quote</a>
+        <a href="{% url 'gallery' %}" class="btn btn-outline">View Our Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat"><strong>15+</strong><span>Years Experience</span></div>
+    <div class="stat"><strong>500+</strong><span>Projects Done</span></div>
+    <div class="stat"><strong>100%</strong><span>Client Satisfaction</span></div>
+    <div class="stat"><strong>24/7</strong><span>Support</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">From interior walls to fine wood finishes, we handle it all.</p>
+    <div class="grid grid-3">
+      {% for s in services %}
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.description }}</p>
+      </div>
+      {% empty %}
+      <div class="card"><div class="card-icon">🎨</div><h3>Interior & Exterior Painting</h3><p>Premium quality paints applied with precision for lasting, beautiful walls.</p></div>
+      <div class="card"><div class="card-icon">🪵</div><h3>Wood Polishing</h3><p>Restore and shine your furniture and woodwork with expert polishing.</p></div>
+      <div class="card"><div class="card-icon">🧱</div><h3>Wall Texturing</h3><p>Modern textures and designer finishes to elevate your walls.</p></div>
+      <div class="card"><div class="card-icon">🛠️</div><h3>Repairs & Putty Work</h3><p>Crack filling, putty, and surface prep for a flawless base.</p></div>
+      <div class="card"><div class="card-icon">🚪</div><h3>Door & Furniture Polish</h3><p>French polish, melamine & PU coating for a premium wood finish.</p></div>
+      <div class="card"><div class="card-icon">🏢</div><h3>Commercial Painting</h3><p>Fast, minimal-disruption painting for offices and shops.</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Recent Work</h2>
+    <div class="grid grid-4 gallery-grid">
+      {% for g in gallery %}
+      <div class="gallery-item"><img src="{{ g.image.url }}" alt="{{ g.title }}" loading="lazy"></div>
+      {% empty %}
+      <div class="gallery-item placeholder">Paint Work</div>
+      <div class="gallery-item placeholder">Wood Polish</div>
+      <div class="gallery-item placeholder">Wall Finish</div>
+      <div class="gallery-item placeholder">Furniture</div>
+      {% endfor %}
+    </div>
+    <div class="center-btn"><a href="{% url 'gallery' %}" class="btn btn-outline">See Full Gallery</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What Clients Say</h2>
+    <div class="grid grid-3">
+      {% for t in testimonials %}
+      <div class="card testimonial">
+        <p>"{{ t.message }}"</p>
+        <strong>— {{ t.name }}</strong>
+      </div>
+      {% empty %}
+      <div class="card testimonial"><p>"Excellent paint job, finished on time and the wood polish looks brand new!"</p><strong>— Happy Customer</strong></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container cta-inner">
+    <h2>Ready to Transform Your Space?</h2>
+    <p>Get a free, no-obligation quote today.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary">Request Quote</a>
+  </div>
+</section>
+
+{% endblock %}
